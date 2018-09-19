@@ -1,0 +1,19 @@
+---
+title: "Homework 1"
+author: "Yuixn"
+---
+
+```{r setup,include=FALSE}
+library(tidyverse)
+```
+## Problem 1
+##create data frame
+```{r }
+problem1_df = tibble(
+  vec_runiform = runif(10,min=0,max=5),
+  vec_logical = output_column(vec_runiform > 2),
+  vec_character = c("My","name","is","Yuxin","I","love","Data","Science","a","lot"),
+  vec_factor = factor(c("male", "male", "female", "female","male","female","male","female","male","male"))
+)
+problem1_df
+```

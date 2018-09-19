@@ -41,6 +41,7 @@ as.numeric(as.character(problem1_df$vec_factor))
 ```
 I obtain numerical results after convert my character variable from character to factor to numeric. I obtain invalid result after convert my factor variable from factor to character to numeric. 
 
+## Problem 2
 ```{r}
 problem2_df = tibble(
   x = rnorm(1000),
@@ -50,3 +51,9 @@ problem2_df = tibble(
   vec_factor = as.factor(vec_indicator))
 problem2_df
 ```
+* The size,mean,and,median of the x vector is `r NROW(problem2_df$x)`, `r mean(problem2_df$x)`,`r median(problem2_df$x)`
+* The size,mean,and,median of the y vector is `r NROW(problem2_df$y)`, `r mean(problem2_df$y)`,`r median(problem2_df$y)`
+* The size,mean,and,median of the logical vector is `r NROW(problem2_df$vec_indicator)`, `r mean(problem2_df$vec_indicator)`,`r median(problem2_df$vec_indicator)`
+* The size,mean,and,median of the numeric vector is `r NROW(problem2_df$vec_numeric)`, `r mean(problem2_df$vec_numeric)`,`r median(problem2_df$vec_numeric)`
+* The size,mean,and,median of the factor vector is `r NROW(problem2_df$vec_factor)`, `NA`,`NA`
+* The proportion of cases for which the logcial vector is TRUE is `r length(which(problem2_df$vec_indicator == 1)) / NROW(problem2_df$vec_indicator)`

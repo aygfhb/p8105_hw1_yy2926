@@ -142,23 +142,39 @@ problem1_df</code></pre>
 <pre><code>## # A tibble: 10 x 4
 ##    vec_runiform vec_logical vec_character vec_factor
 ##           &lt;dbl&gt; &lt;lgl&gt;       &lt;chr&gt;         &lt;fct&gt;     
-##  1        2.36  TRUE        My            male      
-##  2        4.01  TRUE        name          male      
-##  3        0.330 FALSE       is            female    
-##  4        2.52  TRUE        Yuxin         female    
-##  5        4.04  TRUE        I             male      
-##  6        4.97  TRUE        love          female    
-##  7        3.21  TRUE        Data          male      
-##  8        3.32  TRUE        Science       female    
-##  9        1.17  FALSE       a             male      
-## 10        0.890 FALSE       lot           male</code></pre>
+##  1       0.0767 FALSE       My            male      
+##  2       3.95   TRUE        name          male      
+##  3       4.58   TRUE        is            female    
+##  4       2.06   TRUE        Yuxin         female    
+##  5       4.28   TRUE        I             male      
+##  6       4.26   TRUE        love          female    
+##  7       3.57   TRUE        Data          male      
+##  8       4.58   TRUE        Science       female    
+##  9       1.76   FALSE       a             male      
+## 10       3.56   TRUE        lot           male</code></pre>
 <ul>
-<li>The mean of the numerical vector is 2.6825869</li>
-<li>The mean of the logical vector is 0.7</li>
+<li>The mean of the numerical vector is 3.2684975</li>
+<li>The mean of the logical vector is 0.8</li>
 <li>The mean of the character vector is NA</li>
 <li>The mean of the factor vector is NA</li>
 </ul>
 <p>I can find the mean of the numerical and logical vector, and the result of the mean of character and factor vector is not working. This happened due to that mean function in R find the arithmetic mean of the variable. Only variable with a number will make sense under mean function.</p>
+</div>
+<div id="convert-variables-1" class="section level2">
+<h2>Convert variables 1</h2>
+<pre class="r"><code>as.numeric(problem1_df$vec_logical)
+as.numeric(problem1_df$vec_character)
+as.numeric(problem1_df$vec_factor)</code></pre>
+<p>After I apply the “as.numeric” function to the logical, character and factor variables, I have the numerical output of logical and factor variables, and invalid output of character variable. In my example, I have 1 for true, 0 for false, 2 for male and 1 for female.</p>
+</div>
+<div id="convert-variables-2" class="section level2">
+<h2>Convert variables 2</h2>
+<pre class="r"><code>as.numeric(as.factor(problem1_df$vec_character))</code></pre>
+<pre><code>##  [1]  7  8  4 10  3  6  2  9  1  5</code></pre>
+<pre class="r"><code>as.numeric(as.character(problem1_df$vec_factor))</code></pre>
+<pre><code>## Warning: NAs introduced by coercion</code></pre>
+<pre><code>##  [1] NA NA NA NA NA NA NA NA NA NA</code></pre>
+<p>I obtain numerical results after convert my character variable from character to factor to numeric. I obtain invalid result after convert my factor variable from factor to character to numeric.</p>
 </div>
 
 
